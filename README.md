@@ -1,4 +1,8 @@
-Description [ ![Codeship Status for TheSerapher/chef-vsftpd](https://www.codeship.io/projects/3e72d8b0-67e3-0130-0fd6-12313d093ed4/status?branch=master)](https://www.codeship.io/projects/1777)
+Update
+===========
+
+Update: Add virtual support to this cookbook. Please use the original cookbook for local user support.
+
 ===========
 
 A vsftpd Chef cookbook to install and configure a standard vsftpd
