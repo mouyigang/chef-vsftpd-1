@@ -7,12 +7,17 @@ default['vsftpd']['etcdir'] = '/etc/vsftpd'
 # Only allow access to certain users
 # Default: no users are allowed to access FTP
 default['vsftpd']['allowed'] = [ ]
-
+default['vsftpd']['password'] = { }
+default['vsftpd']['defaultpassword'] = { }
 # Depending on configuration of vsftpd allow users to run
 # non-chroot or defines users that have to be chroot'ed
 # Default: chroot all users but those defined here
 default['vsftpd']['chroot'] = [ ]
 
+default['vsftpd']['chroot_virtuser_file']        = node['vsftpd']['etcdir'] + '/vsftpd.virtuser_list'
+default['vsftpd']['chroot_virtuser_pam_file']    = '/etc/pam.d/vsftpd'
+# Change the datafolder to fit your needs
+default['vsftpd']['datafolder'] = '/data'
 # Various configuration options with some sane defaults
 # For details on these please check the official documentation
 default['vsftpd']['config'] = {
@@ -30,17 +35,19 @@ default['vsftpd']['config'] = {
   'local_enable'                => 'YES',
   'local_root'                  => '',
   'user_config_dir'             => node['vsftpd']['etcdir'] + '/users.d',
-  'guest_enable'                => 'NO',
-  'guest_username'              => 'ftp',
+  'guest_enable'                => 'YES',
+  'guest_username'              => 'ftpuser',
+  'virtual_use_local_privs'     => 'YES',
   'write_enable'                => 'YES',
   'local_umask'                 => '022',
   'dirmessage_enable'           => 'YES',
   'message_file'                => '.message',
   'xferlog_enable'              => 'YES',
   'xferlog_file'                => '/var/log/xferlog',
+  'vsftpd_log_file'             => '/var/log/vsftpd.log',
   'xferlog_std_format'          => 'YES',
   'connect_from_port_20'        => 'YES',
-  'chmod_enable'                => 'YES',
+  'chmod_enable'                => 'NO',
   'chown_uploads'               => 'NO',
   'chown_username'              => 'nobody',
   'idle_session_timeout'        => '600',
@@ -77,7 +84,6 @@ default['vsftpd']['config'] = {
   'max_clients'                 => '0',
   'max_per_ip'                  => '0'
 }
-
 # Addresses a compatibility breaking upgrade, might be better to set to NO explicitly but for testing purposes it's enabled
 if (node['platform'] == 'ubuntu' && node['platform_version'].to_f >= 14.04) || (node['platform'] == 'centos' && node['platform_version'].to_f >= 7.0)
   default['vsftpd']['config']['allow_writeable_chroot'] = 'YES'

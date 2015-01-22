@@ -1,0 +1,7 @@
+<% unless node['vsftpd']['allowed'].empty? or node['vsftpd']['allowed'].nil? %>
+       <% node['vsftpd']['allowed'].each do |user| %>
+<%= user %>
+<%= node['vsftpd']['password']["#{user}"]||node['vsftpd']['defaultpassword'] %>
+       <% end %>
+<% end %>
+
