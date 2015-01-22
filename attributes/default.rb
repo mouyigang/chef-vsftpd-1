@@ -8,7 +8,7 @@ default['vsftpd']['etcdir'] = '/etc/vsftpd'
 # Default: no users are allowed to access FTP
 default['vsftpd']['allowed'] = [ ]
 default['vsftpd']['password'] = { }
-default['vsftpd']['defaultpassword'] = { }
+default['vsftpd']['defaultpassword'] = 'iloverandompassword'
 # Depending on configuration of vsftpd allow users to run
 # non-chroot or defines users that have to be chroot'ed
 # Default: chroot all users but those defined here

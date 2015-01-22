@@ -44,8 +44,23 @@ Attributes
   </tr>
   <tr>
     <td><code>node['vsftpd']['allowed']</code></td>
-    <td>Array of local users that are allowd to connect via FTP</td>
+    <td>Array of virtual users that are allowd to connect via FTP</td>
     <td><code>[ ]</code></td>
+  </tr>
+  <tr>
+    <td><code>node['vsftpd']['password']</code></td>
+    <td>Key pairs for username and password to access FTP</td>
+    <td><code>{ }</code></td>
+  </tr>
+  <tr>
+    <td><code>node['vsftpd']['defaultpassword']</code></td>
+    <td>Default password to access FTP if you're too lazy to specify one for each user</td>
+    <td><code>iloverandompassword</code></td>
+  </tr>
+  <tr>
+    <td><code>default['vsftpd']['datafolder']</code></td>
+    <td>The data folder, put FTP root to your home folder sometimes is not a good idea</td>
+    <td><code>/data</code></td>
   </tr>
   <tr>
     <td><code>node['vsftpd']['chroot']</code></td>
