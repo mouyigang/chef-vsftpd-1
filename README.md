@@ -1,8 +1,9 @@
 Update
 ===========
 
-Update: Add virtual support to this cookbook. Please use the original cookbook for local user support.
+Add virtual support to this cookbook. Please use the original cookbook for local user support.
 
+Description
 ===========
 
 A vsftpd Chef cookbook to install and configure a standard vsftpd
