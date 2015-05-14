@@ -81,6 +81,16 @@ Recipes
 
 Installs/configures vsftpd, includes some sub-tasks via `include_recipe`. 
 
+Example
+==========
+vsftpd":{
+        "allowed":["ftpuser1"],
+        "defaultpassword": "1Pass9210#",
+        "home":{"ftpuser1":"FTPUser1Home"},
+        "password":{"ftpuser1":"differentpasswordfromdefault"}
+        },
+    "run_list":["vsftpd"]}
+    
 Known Issue
 ===========
 
