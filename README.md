@@ -83,6 +83,7 @@ Installs/configures vsftpd, includes some sub-tasks via `include_recipe`.
 
 Example
 ==========
+
 vsftpd":{
         "allowed":["ftpuser1"],
         "defaultpassword": "iloverandompassword",
@@ -92,8 +93,9 @@ vsftpd":{
     "run_list":["vsftpd"]}
   save this file to run.json
   and execute:
-  $:sudo chef-solo -c solo.rb -j runlist.json
+    $ sudo chef-solo -c solo.rb -j runlist.json
   You will get a new virtual user: ftpuser1 with password: differentpasswordfromdefault and home folder /data/FTPUser1Home
+
 Known Issue
 ===========
 
