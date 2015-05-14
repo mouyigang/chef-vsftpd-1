@@ -85,12 +85,15 @@ Example
 ==========
 vsftpd":{
         "allowed":["ftpuser1"],
-        "defaultpassword": "1Pass9210#",
+        "defaultpassword": "iloverandompassword",
         "home":{"ftpuser1":"FTPUser1Home"},
         "password":{"ftpuser1":"differentpasswordfromdefault"}
         },
     "run_list":["vsftpd"]}
-    
+  save this file to run.json
+  and execute:
+  $:sudo chef-solo -c solo.rb -j runlist.json
+  You will get a new virtual user: ftpuser1 with password: differentpasswordfromdefault and home folder /data/FTPUser1Home
 Known Issue
 ===========
 
